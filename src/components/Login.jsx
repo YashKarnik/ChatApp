@@ -9,7 +9,7 @@ import authActions from '../actions/authActions';
 export default function Login() {
 	const history = useHistory();
 	const [inputFields, setInputFields] = useState({ email: '', password: '' });
-	const { login, currentUser } = useUserContext();
+	const { login } = useUserContext();
 	function handleChange(e) {
 		const { name, value } = e.target;
 		setInputFields(p => {
