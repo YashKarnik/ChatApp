@@ -3,13 +3,12 @@ import { Button, TextField } from '@material-ui/core';
 import { Logo, Google } from '../assets/svg/index';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../contexts/userContext';
-import { db } from '../firebase';
 import authActions from '../actions/authActions';
 import { useHistory } from 'react-router-dom';
 
 export default function Login() {
 	const history = useHistory();
-	const { currentUser, signUp, login } = useUserContext();
+	const { signUp, login } = useUserContext();
 	const [inputFields, setInputFields] = useState({
 		email: '',
 		password: '',
