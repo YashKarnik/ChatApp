@@ -1,13 +1,12 @@
 import React, { useState, useContext, createContext, useEffect } from 'react';
 import firebase from 'firebase/app';
-import { auth } from '../firebase';
+import { auth, storage } from '../firebase';
 import authActions from '../actions/authActions';
 const UserContext = createContext();
 
 export const useUserContext = () => useContext(UserContext);
 
 export const UserProvider = props => {
-	// eslint-disable-next-line
 	const [currentUser, setCurrentUser] = useState();
 	const [loading, setLoading] = useState(true);
 
@@ -26,6 +25,32 @@ export const UserProvider = props => {
 	function logout() {
 		return auth.signOut();
 	}
+	function changeDP(file, filename) {
+		let x = new Promise(handlePromise);
+		function handlePromise(resolve, reject) {
+			let url = '';
+			let imageRef = storage
+				.ref()
+				.child(`display-pictures/user/${currentUser.uid}/${filename}`);
+
+			function getDownloadUrlFunction() {
+				function updateUser(url) {
+					auth.currentUser
+						.updateProfile({
+							photoURL: url,
+						})
+						.then(() => resolve('SUCCESS'))
+						.catch(err => reject(err));
+				}
+				imageRef.getDownloadURL().then(updateUser);
+			}
+			imageRef.put(file).then(getDownloadUrlFunction);
+		}
+		return x;
+	}
+	// function changeName(name) {
+	// 	return auth.currentUser.updateProfile({ displayName: name });
+	// }
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged(user => {
 			setCurrentUser(user);
@@ -39,7 +64,10 @@ export const UserProvider = props => {
 		signUp,
 		login,
 		logout,
+		changeDP,
+		// changeName,
 	};
+
 	return (
 		<UserContext.Provider value={user}>
 			{!loading && props.children}

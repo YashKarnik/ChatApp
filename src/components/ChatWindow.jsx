@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
 import { useUserContext } from '../contexts/userContext';
 import { useHistory } from 'react-router-dom';
+import UserInfo from './UserInfo';
 export default function ErrorPage() {
 	let history = useHistory();
-	const { currentUser, logout } = useUserContext();
+	const { logout } = useUserContext();
 	async function handleLogout() {
 		try {
 			await logout();
@@ -15,9 +15,15 @@ export default function ErrorPage() {
 	}
 	return (
 		<div className='dead-center chat-window-container'>
-			<p>HEllo</p>
-			<p>HEllo</p>
-			<p>HEllo</p>
+			<UserInfo />
+			<p className='chat-window-item'>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+				recusandae.
+			</p>
+			<p className='chat-window-item'>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+				recusandae.
+			</p>
 		</div>
 	);
 }
