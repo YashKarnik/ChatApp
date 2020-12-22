@@ -1,0 +1,12 @@
+.chat-window-container {
+	display: grid;
+	height: 500px;
+	width: 500px;
+	background-color: red;
+	grid-template-columns: 1fr 3fr;
+}
+.chat-window-container > .chat-window-items {
+	margin: 1rem;
+	border-radius: 0.7rem;
+	border: 1px solid #333;
+}
