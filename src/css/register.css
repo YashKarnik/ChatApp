@@ -1,0 +1,17 @@
+.register-form-container {
+	background-color: #fff;
+	display: flex;
+	width: 25vw;
+	flex-direction: column;
+	border: 1px solid black;
+	border-radius: 0.5rem;
+	padding: 1rem;
+}
+
+.justify-c-center {
+	justify-content: center;
+}
+
+.register-form-container > .register-form-element {
+	margin: 1rem;
+}
