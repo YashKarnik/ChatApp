@@ -3,9 +3,11 @@ import { Button, TextField } from '@material-ui/core';
 import { Logo, Google } from '../assets/svg/index';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../contexts/userContext';
+import { useHistory } from 'react-router-dom';
 import authActions from '../actions/authActions';
 
 export default function Login() {
+	const history = useHistory();
 	const [inputFields, setInputFields] = useState({ email: '', password: '' });
 	const { login, currentUser } = useUserContext();
 	function handleChange(e) {
@@ -18,6 +20,7 @@ export default function Login() {
 		e.preventDefault();
 		try {
 			await login(authActions.EMAIL_PASS_AUTH, inputFields);
+			history.push('/chats');
 		} catch (error) {
 			console.log(error);
 		}
@@ -26,6 +29,7 @@ export default function Login() {
 		e.preventDefault();
 		try {
 			await login(authActions.GOOGLE_AUTH, {});
+			history.push('/chats');
 		} catch (error) {
 			console.log(error);
 		}

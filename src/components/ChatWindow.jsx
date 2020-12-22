@@ -14,16 +14,10 @@ export default function ErrorPage() {
 		}
 	}
 	return (
-		<div>
-			Chat Window
-			<Button
-				variant='outlined'
-				size='large'
-				onClick={handleLogout}
-				type='submit'
-				className='register-form-element'>
-				Log Out
-			</Button>
+		<div className='dead-center chat-window-container'>
+			<p>HEllo</p>
+			<p>HEllo</p>
+			<p>HEllo</p>
 		</div>
 	);
 }
