@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,200&display=swap');
 @import 'register.css';
+@import 'chatWindow.css';
 * {
 	margin: 0;
 	padding: 0;
@@ -7,6 +8,7 @@
 }
 body {
 	overflow: hidden;
+
 	background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
 }
 
