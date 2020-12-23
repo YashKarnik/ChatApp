@@ -28,7 +28,6 @@ export const UserProvider = props => {
 	function changeDP(file, filename) {
 		let x = new Promise(handlePromise);
 		function handlePromise(resolve, reject) {
-			let url = '';
 			let imageRef = storage
 				.ref()
 				.child(`display-pictures/user/${currentUser.uid}/${filename}`);
@@ -48,9 +47,9 @@ export const UserProvider = props => {
 		}
 		return x;
 	}
-	// function changeName(name) {
-	// 	return auth.currentUser.updateProfile({ displayName: name });
-	// }
+	function changeName(name) {
+		return auth.currentUser.updateProfile({ displayName: name });
+	}
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged(user => {
 			setCurrentUser(user);
@@ -65,7 +64,7 @@ export const UserProvider = props => {
 		login,
 		logout,
 		changeDP,
-		// changeName,
+		changeName,
 	};
 
 	return (
