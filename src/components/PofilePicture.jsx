@@ -1,5 +1,6 @@
 import React from 'react';
 import { useUserContext } from '../contexts/userContext';
+import { Camera } from '../assets/svg';
 
 export default function ProfilePicture(props) {
 	const { currentUser, changeDP } = useUserContext();
@@ -15,17 +16,19 @@ export default function ProfilePicture(props) {
 		}
 	}
 	const styles = props.isSettings
-		? { height: '15rem', width: '15rem', fontSize: '10rem' }
+		? { height: '15rem', width: '15rem', fontSize: '15rem' }
 		: {};
 	return (
-		<div>
+		<div className='settings-page-item'>
 			{currentUser.photoURL ? (
 				<div>
 					<img
 						className='profile-picture'
 						src={currentUser.photoURL}
-						style={styles}
+						style={{ ...styles, cursor: 'default' }}
 						alt='Display'
+					/>{' '}
+					<Camera
 						onClick={() => document.querySelector('#file-select').click()}
 					/>
 					<input
