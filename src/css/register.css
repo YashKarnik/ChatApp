@@ -12,6 +12,10 @@
 	justify-content: center;
 }
 
+.register-form-element {
+	margin: 0.5rem !important;
+}
+
 .register-form-container > .register-form-element {
 	margin: 1rem;
 }
