@@ -17,11 +17,9 @@ export default function UserInfo() {
 					<p>{currentUser.email}</p>
 				</div>
 			</div>
-			<Gear
-				className='gear-icon'
-				style={{ height: '100%' }}
-				onClick={() => history.push('/settings')}
-			/>
+			<div className='gear-icon' onClick={() => history.push('/settings')}>
+				<Gear />
+			</div>
 		</div>
 	);
 }

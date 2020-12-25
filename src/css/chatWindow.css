@@ -45,9 +45,10 @@
 	transition-duration: 200ms;
 	transform-origin: center;
 	cursor: pointer;
-
-	fill: gray;
+	height: 3rem;
+	width: 3rem;
+	align-self: center;
 }
 .gear-icon:hover {
-	transform: rotate(45deg);
+	transform: rotate(60deg);
 }

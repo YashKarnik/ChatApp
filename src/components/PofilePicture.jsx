@@ -6,7 +6,6 @@ export default function ProfilePicture(props) {
 	const { currentUser, changeDP } = useUserContext();
 	console.log(props.isSettings);
 	async function changeDp(e) {
-		const extension = e.target.files[0].name.split('.').pop();
 		const filename = e.target.files[0].name;
 		try {
 			await changeDP(e.target.files[0], filename);
@@ -28,14 +27,16 @@ export default function ProfilePicture(props) {
 						style={{ ...styles, cursor: 'default' }}
 						alt='Display'
 					/>{' '}
-					<Camera
-						onClick={() => document.querySelector('#file-select').click()}
-					/>
+					{props.isSettings && (
+						<Camera
+							onClick={() => document.querySelector('#file-select').click()}
+						/>
+					)}
 					<input
 						type='file'
 						style={{ display: 'none' }}
 						id='file-select'
-						accept='.png, .jpg, .jpeg, .txt'
+						accept='.png, .jpg, .jpeg'
 						onInput={changeDp}
 					/>
 				</div>
