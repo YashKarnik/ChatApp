@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useUserContext } from '../contexts/userContext';
 import { Gear } from '../assets/svg/index';
 import { useHistory } from 'react-router-dom';
 import ProfilePicture from './PofilePicture';
-import { Button } from '@material-ui/core';
 import ChangeName from './ChangeName';
 
 export default function UserInfo() {
 	const { currentUser } = useUserContext();
-	const [open, setOpen] = useState(false);
 	const history = useHistory();
 	return (
 		<div

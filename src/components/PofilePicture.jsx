@@ -4,7 +4,7 @@ import { Camera } from '../assets/svg';
 
 export default function ProfilePicture(props) {
 	const { currentUser, changeDP } = useUserContext();
-	console.log(props.isSettings);
+	// console.log(props.isSettings);
 	async function changeDp(e) {
 		const filename = e.target.files[0].name;
 		try {

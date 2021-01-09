@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useUserContext } from '../contexts/userContext';
-import { Button, TextField, InputLabel } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import Modal from './Modal';
 export default function ChangeEmail() {
 	const [open, setOpen] = useState(false);
 	const [email, setEmail] = useState('');
-	const { changeEmail, currentUser } = useUserContext();
+	const { changeEmail } = useUserContext();
 	async function handleSubmit(e) {
 		e.preventDefault();
 		try {
@@ -35,12 +35,7 @@ export default function ChangeEmail() {
 						variant='outlined'
 						onChange={e => setEmail(e.target.value)}
 					/>
-					<Button
-						type='submit'
-						variant='outlined'
-						size='large'
-						type='submit'
-						color='primary'>
+					<Button type='submit' variant='outlined' size='large' color='primary'>
 						Submit
 					</Button>
 				</form>
