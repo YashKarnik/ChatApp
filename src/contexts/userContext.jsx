@@ -48,7 +48,13 @@ export const UserProvider = props => {
 		return x;
 	}
 	function changeName(name) {
-		return auth.currentUser.updateProfile({ displayName: name });
+		return firebase.auth().currentUser.updateProfile({ displayName: name });
+	}
+	function changeEmail(email) {
+		return firebase.auth().currentUser.updateEmail(email);
+	}
+	function changePassword(password) {
+		return firebase.auth().currentUser.updatePassword(password);
 	}
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged(user => {
@@ -65,6 +71,8 @@ export const UserProvider = props => {
 		logout,
 		changeDP,
 		changeName,
+		changeEmail,
+		changePassword,
 	};
 
 	return (
