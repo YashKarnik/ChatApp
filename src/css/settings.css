@@ -25,3 +25,17 @@
 .camera-svg:active {
 	transform: scale(0.9);
 }
+.go-back-arrow {
+	font-size: 4rem;
+	margin-left: 2rem;
+	display: inline-block;
+	transition-duration: 100ms;
+	cursor: pointer;
+	text-decoration: none;
+}
+.go-back-arrow:hover {
+	transform: scaleX(1.25);
+}
+.go-back-arrow:active {
+	color: inherit;
+}

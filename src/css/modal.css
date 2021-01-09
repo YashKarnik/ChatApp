@@ -22,17 +22,21 @@
 .modal-close-btn {
 	border: none;
 	outline: none;
-	background-color: inherit;
+	background-color: transparent;
 	cursor: pointer;
 	font-size: 3rem;
-	border-radius: 0.7rem;
+	border-radius: 100%;
 	padding: 0 0.7rem;
 	position: absolute;
 	top: 0.5rem;
 	right: 0.5rem;
+	transition-duration: 100ms;
 }
 .modal-close-btn:hover {
-	background-color: rgb(95, 94, 94);
+	transform: scale(1.5);
+}
+.modal-close-btn:active {
+	transform: scale(0.5);
 }
 
 .modal-header {

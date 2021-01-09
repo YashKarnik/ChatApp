@@ -52,3 +52,31 @@
 .gear-icon:hover {
 	transform: rotate(60deg);
 }
+
+.setUsernameBtn {
+	cursor: pointer;
+	border: none;
+	padding: 0.2rem;
+	outline: none;
+}
+.setUsernameBtn:hover {
+	background-color: rgb(145, 143, 143) y;
+	cursor: pointer;
+}
+
+.username-display {
+	line-height: 4rem;
+	margin: 0.2rem 0;
+	font-size: 1.3rem;
+}
+
+.flex-rows {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+.flex-rows > .username-display {
+	margin-left: 0.9rem;
+	font-size: 2rem;
+	cursor: pointer;
+}
