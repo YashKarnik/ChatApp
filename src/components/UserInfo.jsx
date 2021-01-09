@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useUserContext } from '../contexts/userContext';
 import { Gear } from '../assets/svg/index';
 import { useHistory } from 'react-router-dom';
 import ProfilePicture from './PofilePicture';
+import { Button } from '@material-ui/core';
+import ChangeName from './ChangeName';
+
 export default function UserInfo() {
 	const { currentUser } = useUserContext();
+	const [open, setOpen] = useState(false);
 	const history = useHistory();
 	return (
 		<div
@@ -12,10 +16,10 @@ export default function UserInfo() {
 			style={{ gridColumn: '1/-1' }}>
 			<div className='user-info flex-rows'>
 				<ProfilePicture />
-				<div className='flex-cols'>
-					<p>{currentUser.displayName || 'no username set'}</p>
-					<p>{currentUser.email}</p>
-				</div>
+
+				<p className='username-display'>
+					@{currentUser.displayName || <ChangeName />}
+				</p>
 			</div>
 			<div className='gear-icon' onClick={() => history.push('/settings')}>
 				<Gear />
