@@ -31,7 +31,7 @@ export default function ChangeEmail() {
 				<p className='modal-header'>Sure?</p>
 				<form className='modal-content' onSubmit={handleSubmit}>
 					<Button type='submit' variant='outlined' size='large' color='primary'>
-						Submit
+						Logout
 					</Button>
 				</form>
 			</Modal>

@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import { useUserContext } from '../contexts/userContext';
 import { useHistory } from 'react-router-dom';
 import authActions from '../actions/authActions';
-
+import Alert from './Alert';
 export default function Login() {
 	const history = useHistory();
 	const [inputFields, setInputFields] = useState({ email: '', password: '' });
+	const [error, setError] = useState(false);
 	const { login } = useUserContext();
 	function handleChange(e) {
 		const { name, value } = e.target;
@@ -21,8 +22,8 @@ export default function Login() {
 		try {
 			await login(authActions.EMAIL_PASS_AUTH, inputFields);
 			history.push('/chats');
-		} catch (error) {
-			console.log(error);
+		} catch (err) {
+			setError(err.message);
 		}
 	}
 	async function handleGoogleAuth(e) {
@@ -30,12 +31,13 @@ export default function Login() {
 		try {
 			await login(authActions.GOOGLE_AUTH, {});
 			history.push('/chats');
-		} catch (error) {
-			console.log(error);
+		} catch (err) {
+			setError(err.message);
 		}
 	}
 	return (
 		<div className='dead-center text-center'>
+			<Alert message={error} severity='error' open={error} setOpen={setError} />
 			<form
 				onSubmit={handleEmailPassSubmit}
 				className='register-form-container animate__animated animate__fadeInDown'

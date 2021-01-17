@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Alert from './Alert';
 import { Button, TextField } from '@material-ui/core';
 import { Logo, Google } from '../assets/svg/index';
 import { Link } from 'react-router-dom';
@@ -14,16 +15,20 @@ export default function Login() {
 		password: '',
 		confirm_password: '',
 	});
-
+	const [error, setError] = useState(false);
 	async function handleEmailPassSubmit(e) {
 		e.preventDefault();
 		const { email, password, confirm_password } = inputFields;
-		if (password === confirm_password)
+		if (password !== confirm_password) setError('Passwords do not match');
+		if (password.length < 6)
+			setError('Passwords must be at least 6 characters long');
+		else
 			try {
 				await signUp(email, password);
 				history.push('/chats');
-			} catch (error) {
-				console.log(error);
+			} catch (e) {
+				console.log(e);
+				setError(e.message);
 			}
 	}
 	async function handleGoogleSubmit(e) {
@@ -43,6 +48,7 @@ export default function Login() {
 	}
 	return (
 		<div className='dead-center text-center'>
+			<Alert message={error} severity='error' open={error} setOpen={setError} />
 			<form
 				onSubmit={handleEmailPassSubmit}
 				className='register-form-container animate__animated animate__fadeInDown'
