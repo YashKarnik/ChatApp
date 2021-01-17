@@ -25,17 +25,37 @@
 .camera-svg:active {
 	transform: scale(0.9);
 }
-.go-back-arrow {
-	font-size: 4rem;
-	margin-left: 2rem;
-	display: inline-block;
-	transition-duration: 100ms;
-	cursor: pointer;
-	text-decoration: none;
+
+.dropdown {
+	background-color: rgba(255, 255, 255, 0.94);
+	/* whi */
+	position: absolute;
 }
-.go-back-arrow:hover {
-	transform: scaleX(1.25);
+
+.settings-btn {
+	align-self: center;
+	position: relative;
 }
-.go-back-arrow:active {
-	color: inherit;
+
+.dropdown {
+	z-index: 10;
+	position: absolute;
+	right: 1rem;
+	min-width: 15rem;
+	border: 1px solid gray;
+}
+.dropdown > * {
+	padding: 1rem;
+	border-bottom: 1px solid black;
+}
+.dropdown::before {
+	content: '';
+	position: absolute;
+	top: -1rem;
+	right: 0;
+	height: 0rem;
+	width: 0rem;
+	border-left: 0.5rem solid transparent;
+	border-bottom: 1rem solid black;
+	border-right: 0.5rem solid transparent;
 }

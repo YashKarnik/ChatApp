@@ -4,7 +4,6 @@ import { Camera } from '../assets/svg';
 
 export default function ProfilePicture(props) {
 	const { currentUser, changeDP } = useUserContext();
-	// console.log(props.isSettings);
 	async function changeDp(e) {
 		const filename = e.target.files[0].name;
 		try {
@@ -14,23 +13,25 @@ export default function ProfilePicture(props) {
 			console.log(error);
 		}
 	}
-	const styles = props.isSettings
-		? { height: '15rem', width: '15rem', fontSize: '15rem' }
-		: {};
+
 	return (
-		<div className='settings-page-item'>
+		<div className='settings-page-item' style={{ padding: '0', margin: '0' }}>
 			{currentUser.photoURL ? (
 				<div>
-					<img
-						className='profile-picture'
-						src={currentUser.photoURL}
-						style={{ ...styles, cursor: 'default' }}
-						alt='Display'
-					/>{' '}
-					{props.isSettings && (
-						<Camera
-							onClick={() => document.querySelector('#file-select').click()}
+					{!props.isSettings && (
+						<img
+							className='profile-picture '
+							src={currentUser.photoURL}
+							alt='Display'
 						/>
+					)}
+
+					{props.isSettings && (
+						<div>
+							<Camera
+								onClick={() => document.querySelector('#file-select').click()}
+							/>
+						</div>
 					)}
 					<input
 						type='file'
@@ -43,7 +44,6 @@ export default function ProfilePicture(props) {
 			) : (
 				<div
 					className='profile-picture'
-					style={styles}
 					onClick={() => document.querySelector('#file-select').click()}>
 					+
 					<input
