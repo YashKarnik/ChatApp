@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,200&display=swap');
 @import 'register.css';
 @import 'chatWindow.css';
+@import 'texts.css';
 @import 'settings.css';
 @import 'modal.css';
+@import 'alert.css';
+
 * {
 	margin: 0;
 	padding: 0;
@@ -10,7 +13,6 @@
 }
 body {
 	overflow: hidden;
-
 	background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
 }
 
@@ -24,11 +26,12 @@ body {
 	transform: translate(-50%, -50%);
 }
 
-.links {
+.links,
+a {
 	color: inherit;
 	text-decoration: none;
 }
-
+/* FlexBox */
 .flex-rows {
 	display: flex;
 	flex-direction: row;
@@ -36,4 +39,67 @@ body {
 .flex-cols {
 	display: flex;
 	flex-direction: column;
+}
+
+/* Margin */
+.m-1 {
+	margin: 1rem;
+}
+.m-2 {
+	margin: 2rem;
+}
+
+.mx-1 {
+	margin: 0 1rem;
+}
+.mx-2 {
+	margin: 0 2rem;
+}
+.my-1 {
+	margin: 1rem 0;
+}
+.my-2 {
+	margin: 2rem 0;
+}
+
+/* Padding */
+.p-1 {
+	padding: 1rem;
+}
+.p-2 {
+	padding: 2rem;
+}
+
+.px-1 {
+	padding: 0 1rem;
+}
+.px-2 {
+	padding: 0 2rem;
+}
+.py-1 {
+	padding: 1rem 0;
+}
+.py-2 {
+	padding: 2rem 0;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color: #fff;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgb(104, 104, 104);
 }

@@ -1,0 +1,40 @@
+.text-blob {
+	max-width: 45%;
+	margin: 1rem 1.4rem;
+	position: relative;
+	border-radius: 0.3rem;
+	padding: 0.4rem;
+}
+
+.text-blob-receiver {
+	background-color: gainsboro;
+	border-top-left-radius: 0;
+}
+.text-blob-sender {
+	background-color: grey;
+	margin-left: auto;
+	border-top-right-radius: 0;
+}
+
+.text-blob-receiver::before {
+	content: '';
+	position: absolute;
+	left: -1rem;
+	top: 0;
+	height: 0rem;
+	width: 0rem;
+	border-top: 0.5rem solid transparent;
+	border-right: 1rem solid gainsboro;
+	border-bottom: 0.5rem solid transparent;
+}
+.text-blob-sender::after {
+	content: '';
+	position: absolute;
+	right: -1rem;
+	top: 0;
+	height: 0rem;
+	width: 0rem;
+	border-top: 0.5rem solid transparent;
+	border-left: 1rem solid grey;
+	border-bottom: 0.5rem solid transparent;
+}

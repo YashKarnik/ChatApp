@@ -23,6 +23,7 @@ export const UserProvider = props => {
 		return auth.signInWithPopup(provider);
 	}
 	function logout() {
+		setCurrentUser({})
 		return auth.signOut();
 	}
 	function changeDP(file, filename) {
